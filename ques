@@ -1,0 +1,63 @@
+
+public class Quesds {
+		private static Object[] stackarray;
+		private static int size;
+		private int rear;
+		private int front;
+		public Quesds (int size)
+		{
+			this.size=size;
+			this.front=-1;
+			this.rear=0;
+			stackarray=new Object[size];
+		}
+		public void enque(Object value)
+		{
+			if(front==size-1 ) {
+				System.out.println("QUe is Full");
+			}
+			else {
+			front++;
+			stackarray[front]=value;
+			}
+		}
+		public void deque()
+		{
+			if(rear-1==front) {
+				System.out.println("Que is Empty");
+				//return -1;
+			}
+			else
+			{
+				int oldtop=rear;
+				rear++;
+				stackarray[oldtop]=null;
+				//return stackarray[oldtop];
+			}
+		}
+		public Object peek()
+		{
+			return stackarray[front];
+		}
+		public static void main(String[] args) {
+			Quesds  s=new Quesds (5);
+			s.enque(10);
+			s.enque(20);
+			s.enque(30);
+			s.enque(40);
+			s.enque(50);
+			s.deque();
+			s.deque();
+			s.enque(2);
+			s.enque(3);
+			System.out.println("Elements in que with size :"+size);
+			for(int i=0;i<size;i++)
+				System.out.println(stackarray[i]);
+		}
+
+	}
+
+
+
+
+
